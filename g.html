@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sản phẩm | MXD</title>
+  <meta id="desc" name="description" content="Trang sản phẩm MXD. Vui lòng bật JavaScript để hiển thị chi tiết."/>
+  <link id="canon" rel="canonical" href="https://drhienqt.github.io/g.html"/>
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="Sản phẩm | MXD"/>
+  <meta property="og:description" content="Thông tin sản phẩm và liên kết mua hàng an toàn."/>
+  <meta id="ogurl" property="og:url" content="https://drhienqt.github.io/g.html"/>
+  <meta id="ogimg" property="og:image" content="https://drhienqt.github.io/assets/img/products/placeholder.webp"/>
+  <link rel="stylesheet" href="/assets/site.css"/>
+  <script defer src="/assets/analytics.js"></script>
+  <script defer src="/assets/mxd-affiliate.js"></script>
+  <script>
+    (function() {
+      const p = new URLSearchParams(location.search);
+      const sku = p.get('sku');
+      if(!sku) {
+        document.querySelector('meta[name=robots]').setAttribute('content','noindex,follow');
+        return;
+      }
+      const name = (p.get('name')||sku).replace(/\+/g,' ');
+      const price = p.get('price')||'';
+      const img = 'https://drhienqt.github.io/assets/img/products/' + sku + '.webp';
+      const canon = 'https://drhienqt.github.io/g.html?sku=' + encodeURIComponent(sku);
+      document.title = name + ' | MXD';
+      document.getElementById('desc').setAttribute('content', 'Thông tin sản phẩm ' + name + ' — MXD');
+      document.getElementById('canon').setAttribute('href', canon);
+      document.getElementById('ogurl').setAttribute('content', canon);
+      document.getElementById('ogimg').setAttribute('content', img);
+      const ld = {
+        "@context":"https://schema.org",
+        "@type":"Product",
+        "name": name,
+        "sku": sku,
+        "image": img,
+        "description": 'Sản phẩm ' + name + ' — MXD',
+        "offers": {
+          "@type":"Offer",
+          "price": price || "0",
+          "priceCurrency":"VND",
+          "availability":"https://schema.org/InStock",
+          "url": canon
+        }
+      };
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify(ld);
+      document.head.appendChild(s);
+    })();
+  </script>
+</head>
+<body>
+  <main class="container">
+    <h1 id="pname">Sản phẩm</h1>
+    <div class="note muted">Trang này tự cập nhật theo tham số <code>?sku=</code>.</div>
+  </main>
+</body>
+</html>
