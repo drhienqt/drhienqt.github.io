@@ -1,4 +1,4 @@
-# MXD Starter — drhienqt.github.io
+# HHP shop — drhienqt.github.io
 
 Đã set **canonical tuyệt đối** về: `https://drhienqt.github.io`.
 
