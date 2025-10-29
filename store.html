@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Danh mục — MXD</title>
-  <meta name="description" content="Trung tâm danh mục MXD: Máy cắt & mài, Mẹ & Bé, Mỹ phẩm, Thời trang…"/>
+  <meta name="description" content="Trung tâm danh mục MXD: Máy cắt & mài, Mẹ & Bé, Thời trang…"/>
   <link rel="canonical" href="https://drhienqt.github.io/store.html"/>
   <meta name="robots" content="index,follow"/>
   <link rel="stylesheet" href="/assets/site.css"/>
@@ -12,7 +12,12 @@
   <script defer src="/assets/mxd-affiliate.js"></script>
 </head>
 <body>
-  <!-- MXD-CHECK v2025-10-24 [store] -->
+  <!-- MXD-CHECK v2025-10-24 [store]
+  - Canonical absolute; robots=index,follow
+  - Grid tile → /store/<slug>.html
+  - Icon at /assets/img/categories/<slug>.webp ; alt="<Tên danh mục> — MXD"
+  - Commit message when adding tile: feat(layout): add <Tên danh mục> tile linking to /store/<slug>.html in store.html
+  -->
   <main class="container">
     <h1>Cửa hàng MXD</h1>
     <div class="category-grid">
@@ -23,6 +28,11 @@
       <a class="category-tile" href="/store/may-cat-mai.html">
         <img src="/assets/img/categories/may-cat-mai.webp" alt="Máy cắt &amp; mài — MXD" width="360" height="240"/>
         <span>Máy cắt &amp; mài</span>
+      </a>
+      <!-- NEW TILE: Thời trang -->
+      <a class="category-tile" href="/store/thoi-trang.html">
+        <img src="/assets/img/categories/thoi-trang.webp" alt="Thời trang — MXD" width="360" height="240"/>
+        <span>Thời trang</span>
       </a>
     </div>
   </main>
