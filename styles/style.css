@@ -11,7 +11,7 @@ nav a:hover { color:#90e0ef; }
 /* Hero section với ảnh chìm */
 .hero { position:relative; text-align:center; color:white; background:#0096c7; padding:80px 20px; border-bottom:5px solid #023e8a; overflow:hidden; }
 .hero::before { content: ''; position:absolute; top:0; left:0; width:100%; height:100%; background: url('https://drhienqt.github.io
-/hinnen1.png') no-repeat center center/cover; opacity:0.2; z-index:0; }
+/hinnen1.png') no-repeat center center/cover; opacity:0.3; z-index:0; }
 .hero h1, .hero p { position:relative; z-index:1; }
 .hero h1 { font-size:2.5rem; font-weight:800; margin-bottom:15px; }
 .hero p { font-size:1.2rem; color:#caf0f8; }
