@@ -1,0 +1,12 @@
+[
+  {"id":1, "name":"Ấm siêu tốc", "price":"350.000₫", "image":"images/products/am-sieu-toc.jpg", "link":"https://afflink1.com"},
+  {"id":2, "name":"Bình giữ nhiệt", "price":"220.000₫", "image":"images/products/binh-giu-nhiet.jpg", "link":"https://afflink2.com"},
+  {"id":3, "name":"Máy xay sinh tố", "price":"550.000₫", "image":"images/products/may-xay.jpg", "link":"https://afflink3.com"},
+  {"id":4, "name":"Đèn học LED", "price":"180.000₫", "image":"images/products/den-hoc.jpg", "link":"https://afflink4.com"},
+  {"id":5, "name":"Máy hút bụi mini", "price":"600.000₫", "image":"images/products/may-hut-bui.jpg", "link":"https://afflink5.com"},
+  {"id":6, "name":"Ghế ngồi văn phòng", "price":"1.200.000₫", "image":"images/products/ghe-van-phong.jpg", "link":"https://afflink6.com"},
+  {"id":7, "name":"Tủ lạnh mini", "price":"2.800.000₫", "image":"images/products/tu-lanh-mini.jpg", "link":"https://afflink7.com"},
+  {"id":8, "name":"Quạt để bàn", "price":"150.000₫", "image":"images/products/quat-ban.jpg", "link":"https://afflink8.com"},
+  {"id":9, "name":"Máy pha cà phê", "price":"900.000₫", "image":"images/products/may-pha-ca-phe.jpg", "link":"https://afflink9.com"},
+  {"id":10, "name":"Nồi cơm điện", "price":"700.000₫", "image":"images/products/noi-com-dien.jpg", "link":"https://afflink10.com"}
+]
