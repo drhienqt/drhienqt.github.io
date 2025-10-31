@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               <img src="${p.image}" alt="${p.name}">
               <h3>${p.name}</h3>
               <p>${p.price}</p>
-              <a href="${p.link}" target="_blank" class="btn">Tìm hiểu thêm</a>
+              <a href="${p.link}" target="_blank" class="btn">Chi tiết</a>
             </div>
           `
           )
