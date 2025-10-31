@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên Hệ - HÂN STORE</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .hero { position:relative; text-align:center; color:white; background:#0096c7; padding:80px 20px; border-bottom:5px solid #023e8a; overflow:hidden; }
+    .hero::before { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://drhienqt.github.io/banner-hanstore.png') no-repeat center center/cover; opacity:0.3; z-index:0; }
+    .hero h1, .hero p { position:relative; z-index:1; }
+    .hero h1 { font-size:2.8rem; font-weight:800; margin-bottom:10px; }
+    .hero p { font-size:1.2rem; color:#caf0f8; }
+
+    .contact-section { padding:60px 20px; background:#f0f4f8; text-align:center; }
+    .contact-section h1 { font-size:2.5rem; color:#023e8a; margin-bottom:20px; }
+    .contact-info { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:30px; }
+    .contact-card { background:white; padding:20px 30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); width:250px; transition:transform 0.3s; }
+    .contact-card:hover { transform:translateY(-5px); }
+    .contact-card img { width:40px; height:40px; margin-bottom:10px; }
+    .contact-card p, .contact-card a { margin:0; font-size:1rem; color:#333; text-decoration:none; }
+    .contact-card a:hover { text-decoration:underline; color:#0077b6; }
+
+    .map-section { margin-top:40px; }
+    iframe { width:90%; height:350px; border:0; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="contact.html">Liên hệ</a>
+    <a href="huongdan.html">Hướng dẫn</a>
+    <a href="sanpham.html">Sản phẩm</a>
+  </nav>
+
+  <header class="hero">
+    <h1>Liên hệ với HÂN STORE</h1>
+    <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn</p>
+  </header>
+
+  <section class="contact-section">
+    <h1>Thông tin liên hệ</h1>
+    <div class="contact-info">
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone">
+        <p><strong>Điện thoại:</strong><br><a href="tel:0363293396">0363.293.396</a></p>
+      </div>
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111728.png" alt="Zalo">
+        <p><strong>Zalo:</strong><br><a href="https://zalo.me/0363293396" target="_blank">0363.293.396</a></p>
+      </div>
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        <p><strong>Facebook:</strong><br><a href="https://facebook.com/hongpls" target="_blank">facebook.com/hongpls</a></p>
+      </div>
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046127.png" alt="Tiktok">
+        <p><strong>Tiktok:</strong><br><a href="https://www.tiktok.com/@han.store" target="_blank">@Han.store</a></p>
+      </div>
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+        <p><strong>Email:</strong><br><a href="mailto:han.store@gmail.com">han.store@gmail.com</a></p>
+      </div>
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/870/870910.png" alt="Shopee">
+        <p><strong>Shopee:</strong><br><a href="https://shopee.vn/han.store" target="_blank">Hân.store</a></p>
+      </div>
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Địa chỉ">
+        <p><strong>Địa chỉ:</strong><br>Tứ Minh, Hải Dương, Việt Nam</p>
+      </div>
+    </div>
+
+    <div class="map-section">
+      <h2>Địa chỉ của chúng tôi</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.012714590415!2d105.78409337493236!3d21.03109578061637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab39b3c54e1b%3A0xf53e14b0d48166c1!2zSMOgIMSQ4buTbmcgTeG7mXUgSMOgbmc!5e0!3m2!1svi!2s!4v1685100000000!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer style="background:#023e8a; color:white; text-align:center; padding:20px; margin-top:40px;">
+    <p>© 2025 HÂN STORE - Mọi quyền được bảo lưu.</p>
+  </footer>
+</body>
+</html>
