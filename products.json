@@ -1,5 +1,5 @@
 [
-  {"id":1, "name":"Ấm siêu tốc", "price":"350.000₫", "image":"images/products/am-sieu-toc.jpg", "link":"https://afflink1.com"},
+  {"id":1, "name":"Kệ để bàn chải đánh răng", "price":"129.000₫", "image":"product/kebanchai.png", "link":"https://shorten.asia/rmehk7g5"},
   {"id":2, "name":"Bình giữ nhiệt", "price":"220.000₫", "image":"images/products/binh-giu-nhiet.jpg", "link":"https://afflink2.com"},
   {"id":3, "name":"Máy xay sinh tố", "price":"550.000₫", "image":"images/products/may-xay.jpg", "link":"https://afflink3.com"},
   {"id":4, "name":"Đèn học LED", "price":"180.000₫", "image":"images/products/den-hoc.jpg", "link":"https://afflink4.com"},
