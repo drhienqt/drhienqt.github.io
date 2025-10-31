@@ -17,11 +17,11 @@ nav a:hover { color:#90e0ef; }
 
 /* Categories */
 .categories { padding:40px 20px; background:#caf0f8; text-align:center; }
-.categories h2 { font-size:2rem; margin-bottom:30px; color:#023e8a; }
+.categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .category-tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; }
 .category { text-align:center; text-decoration:none; color:#023e8a; background:#ffffff; border-radius:10px; padding:15px; width:140px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
 .category:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
-.category img { width:120px; height:120px; margin-bottom:10px; }
+.category img { width:120px; height:100px; margin-bottom:1px; }
 .category p { font-weight:600; }
 
 /* Products */
