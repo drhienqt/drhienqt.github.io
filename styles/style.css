@@ -5,7 +5,7 @@ body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#f0f4
 
 /* Navigation */
 nav { display:flex; justify-content:center; background:#0077b6; padding:15px; }
-nav a { margin:0 15px; text-decoration:none; color:#ffffff; font-weight:600; font-size:16px; transition:0.3s; }
+nav a { margin:0 15px; text-decoration:none; color:#ffffff; font-weight:650; font-size:18px; transition:0.5s; }
 nav a:hover { color:#90e0ef; }
 
 /* Hero section với ảnh chìm */
