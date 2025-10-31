@@ -25,7 +25,7 @@ nav a:hover { color:#90e0ef; }
 .category p { font-weight:600; }
 
 /* Products */
-.products { padding:40px 20px; background:#e0fbfc; }
+.products { padding:40px 20px; background:#e0fbfc;text-align:center; }
 .products .product { display:inline-block; width:140px;height:200px; margin:15px; padding:5px; background:#ffffff; border-radius:10px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
 .products .product:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
 .products img { width:120px; height:120px; object-fit:cover; border-radius:1px; }
