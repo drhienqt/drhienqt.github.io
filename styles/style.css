@@ -71,22 +71,26 @@ nav a:hover { color:#90e0ef; }
   height: 120px;
   object-fit: cover;
   border-radius: 10px;
+  display: block;       /* bắt buộc để margin auto hoạt động */
+  margin: 0 auto 5px;  /* 0 trên, auto trái/phải, 10px dưới */
+}
+
 }
 
 .products h3 {
   font-size: 1.1rem;
-  margin: 10px 0;
+  margin: 3px 0;
 }
 
 .products p {
   font-size: 1rem;
   color: #0077b6;
-  font-weight: 600;
+  font-weight: 600; margin: 3px 0;
 }
 
 .products a {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 3px;
   padding: 8px 15px;
   background: #0077b6;
   color: white;
