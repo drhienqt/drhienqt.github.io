@@ -1,5 +1,5 @@
 // Load products from JSON
-fetch('products.json')
+fetch('mainproducts.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('categoriesContainer');
