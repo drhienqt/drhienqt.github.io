@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản Phẩm - HÂN STORE</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f8fbfd; color:#023e8a; }
+    nav { background:#023e8a; padding:10px; text-align:center; }
+    nav a { color:white; text-decoration:none; margin:0 10px; font-weight:600; transition:0.3s; }
+    nav a:hover { color:#90e0ef; }
+    .hero { position:relative; text-align:center; color:white; background:#0096c7;
+            padding:80px 20px; border-bottom:5px solid #023e8a; overflow:hidden; }
+    .hero::before { content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+                     background:url('https://drhienqt.github.io/banner-hanstore.png') no-repeat center/cover;
+                     opacity:0.3; z-index:0; }
+    .hero h1, .hero p { position:relative; z-index:1; }
+    .hero h1 { font-size:2.8rem; font-weight:800; margin-bottom:10px; }
+    .hero p { font-size:1.2rem; color:#caf0f8; }
+    /* Search */
+    .search-bar { text-align:center; margin:30px 0; }
+    .search-bar input { width:90%; max-width:400px; padding:10px 15px; border-radius:8px; border:1px solid #0096c7; font-size:1rem; }
+    /* Category section */
+    .category-section { padding:40px 20px; }
+    .category-section h2 { font-size:2rem; color:#023e8a; text-align:center; margin-bottom:20px; border-bottom:3px solid #0096c7; display:inline-block; padding-bottom:5px; }
+    .products { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:20px; justify-items:center; }
+    .product { background:white; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+               padding:15px; width:160px; height:270px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; text-align:center; transition:0.3s; }
+    .product:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
+    .product img { width:120px; height:120px; object-fit:cover; border-radius:10px; display:block; margin:0 auto; }
+    .product h3 { font-size:1rem; margin:8px 0 4px; color:#023e8a; }
+    .product p { font-size:0.9rem; color:#0077b6; font-weight:600; margin:0 0 6px; }
+    .product a { display:inline-block; background:#0077b6; color:white; text-decoration:none; padding:6px 12px; border-radius:5px; font-size:0.9rem; transition:0.3s; }
+    .product a:hover { background:#023e8a; }
+    .more-btn { display:inline-block; margin:20px auto 40px; padding:10px 20px; background:#0096c7; color:white; text-decoration:none; border-radius:8px; transition:0.3s; }
+    .more-btn:hover { background:#023e8a; }
+    footer { background:#023e8a; color:white; text-align:center; padding:20px; margin-top:40px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="lienhe.html">Liên hệ</a>
+    <a href="huongdan.html">Hướng dẫn</a>
+    <a href="sanpham.html">Sản phẩm</a>
+  </nav>
+
+  <header class="hero">
+    <h1>Sản Phẩm Tại HÂN STORE</h1>
+    <p>Khám phá các ngành hàng đa dạng và phong phú nhất</p>
+  </header>
+
+  <!-- Search bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+  </div>
+
+  <!-- Container for all categories -->
+  <div id="categoriesContainer"></div>
+
+  <footer>
+    <p>© 2025 HÂN STORE - Mọi quyền được bảo lưu.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
