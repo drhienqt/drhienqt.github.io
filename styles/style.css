@@ -128,3 +128,41 @@ nav a:hover { color:#90e0ef; }
   nav { flex-direction:column; }
   nav a { margin:5px 0; }
 }
+/* Category section - nâng cấp với gradient và shadow */
+.category-section h2 {
+  font-size: 2rem;
+  color: white; /* chữ trắng nổi trên nền gradient */
+  text-align: center;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0096c7, #023e8a);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng hover - tăng nổi và sáng */
+.category-section h2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Thanh vàng nhỏ phía dưới khi hover */
+.category-section h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: #ffbe0b; /* màu vàng nổi bật */
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.category-section h2:hover::after {
+  width: 50%;
+}
