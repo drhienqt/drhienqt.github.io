@@ -1,4 +1,4 @@
-/* styles/style.css - phiên bản sửa lỗi sản phẩm vẫn hàng ngang + viền ảnh động */
+/* styles/style.css - Đã sửa lỗi JS và tối ưu hiệu ứng viền ảnh động */
 
 /* Reset cơ bản và font */
 * { box-sizing: border-box; }
@@ -35,43 +35,69 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .product a { display:inline-block; margin-top:auto; padding:8px 12px; background:#0077b6; color:#fff; text-decoration:none; border-radius:6px; transition:background 0.3s ease; }
 .product a:hover { background:#023e8a; }
 
-/* Viền ảnh hiện đại */
-.product img {
-    width: 120px;
+/* --- CSS SỬA LỖI VIỀN ẢNH ĐỘNG VÀ ÁP DỤNG CHO WRAPPER --- */
+
+/* 1. Wrapper chứa ảnh (Áp dụng viền động tại đây) */
+.product-image-wrapper {
+    position: relative;
+    width: 120px; 
     height: 120px;
-    object-fit: cover;
     margin: 0 auto 10px;
     border-radius: 15px;
-    padding: 4px;
+    padding: 4px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    /* Dùng background tĩnh cho wrapper nếu muốn màu nền mặc định */
     background: linear-gradient(135deg, #0096c7, #023e8a);
-    transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease, background 1.5s linear;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    position: relative;
 }
-.product img::before {
+
+/* 2. Pseudo-element tạo viền gradient động */
+.product-image-wrapper::before {
     content: '';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 19px;
+    top: -5px; 
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 19px; 
+    /* Dải màu gradient động */
     background: linear-gradient(90deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff, #ffbe0b);
     background-size: 400% 400%;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     animation: gradient-border 5s ease infinite;
 }
-.product:hover img {
-    transform: scale(1.1);
+
+/* 3. Định dạng thẻ ảnh bên trong */
+.product img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1; /* Đảm bảo ảnh nằm trên viền động */
+    border-radius: 12px; 
+    transition: transform 0.5s ease;
+    filter: brightness(1);
+}
+
+/* 4. Hiệu ứng Hover */
+.product:hover .product-image-wrapper {
     box-shadow: 0 0 20px rgba(0,150,199,0.4);
+}
+
+.product:hover img {
+    transform: scale(1.05); /* Ảnh zoom nhẹ khi hover */
     filter: brightness(1.1);
 }
+
+/* Keyframe cho hiệu ứng động */
 @keyframes gradient-border {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+
+/* --- KẾT THÚC PHẦN SỬA LỖI VIỀN ẢNH ĐỘNG --- */
 
 /* Modal */
 .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000; }
@@ -92,46 +118,46 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 
 /* Responsive */
 @media(max-width:768px) {
-  .category-tabs { gap:15px; }
-  .products .product { width:45%; }
+  .category-tabs { gap:15px; }
+  .products .product { width:45%; }
 }
 @media(max-width:480px) {
-  .products .product { width:100%; }
-  nav { flex-direction:column; }
-  nav a { margin:5px 0; }
+  .products .product { width:100%; }
+  nav { flex-direction:column; }
+  nav a { margin:5px 0; }
 }
 
 /* Category section - nâng cấp với gradient và shadow */
 .category-section h2 {
-  font-size: 1.6rem;
-  text-align: center;
-  color: #ffffff;
-  background: linear-gradient(90deg, #0077b6, #0096c7);
-  border-radius: 10px;
-  padding: 10px 0;
-  margin-bottom: 25px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  position: relative;
-  transition: all 0.3s ease;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(90deg, #0077b6, #0096c7);
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  position: relative;
+  transition: all 0.3s ease;
 }
 .category-section h2:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 .category-section h2::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -8px;
-  transform: translateX(-50%);
-  width: 0;
-  height: 4px;
-  background: #ffbe0b;
-  border-radius: 2px;
-  transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: #ffbe0b;
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 .category-section h2:hover::after {
-  width: 50%;
+  width: 50%;
 }
