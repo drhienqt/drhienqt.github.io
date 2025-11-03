@@ -17,17 +17,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Tạo giao diện hiển thị sản phẩm
     const html = `
-      <h2>Sản phẩm tiêu biểu</h2>
-      <div class="products">
+    // ...
+    <div class="products">
         ${featured
           .map(
             (p) => `
             <div class="product">
-              <img src="${p.image}" alt="${p.name}">
+              <div class="product-image-wrapper"> 
+                <img src="${p.image}" alt="${p.name}">
+              </div>
               <h3>${p.name}</h3>
-<a href="${p.link}" target="_blank" class="btn">Chi tiết</a>
+              <a href="${p.link}" target="_blank" class="btn">Chi tiết</a>
             </div>
-          `
+            `
           )
           .join("")}
       </div>
