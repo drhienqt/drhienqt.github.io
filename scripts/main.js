@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const products = await response.json();
 
     // Giới hạn 10 sản phẩm tiêu biểu (hoặc ít hơn nếu không đủ)
-    const featured = products.slice(0, 10);
+    const featured = products.slice(0, 8);
 
     // Tạo giao diện hiển thị sản phẩm
     const html = `
