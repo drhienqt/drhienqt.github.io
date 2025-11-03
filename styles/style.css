@@ -26,68 +26,90 @@ nav a:hover { color:#90e0ef; }
 .hero h1 { font-size:2.5rem; font-weight:800; margin-bottom:15px; }
 .hero p { font-size:1.2rem; color:#caf0f8; }
 
-/* Categories */
+/* --- PHẦN CATEGORIES ĐÃ TỐI ƯU CHO MOBILE (styles/style.css) --- */
+
 .categories { 
-    padding: 40px 20px; 
+    padding: 30px 10px; /* Giảm padding tổng thể */
     background: #caf0f8; 
     text-align: center; 
 }
 .categories h2 { 
     font-size: 2rem; 
-    margin-bottom: 20px; 
+    margin-bottom: 25px; 
     color: #023e8a; 
 }
 
-/* --- PHẦN ĐÃ CHỈNH SỬA CHO MOBILE START --- */
+/* Container dùng Flexbox */
 .category-tabs { 
     display: flex; 
     flex-wrap: wrap; 
+    /* Đảm bảo căn giữa container */
     justify-content: center; 
-    gap: 15px; /* Giảm khoảng cách để tối ưu không gian */
+    gap: 10px; /* Giảm khoảng cách giữa các mục */
+    max-width: 900px; /* Giới hạn chiều rộng cho desktop */
+    margin: 0 auto;
 }
+
+/* Mục Danh mục (Category Item) */
 .category { 
     text-align: center; 
     text-decoration: none; 
     color: #023e8a; 
     background: #ffffff; 
     border-radius: 10px; 
-    padding: 10px 5px; /* Giảm padding ngang */
-    
-    /* Đã thay thế width cố định (150px) bằng tỷ lệ phần trăm */
-    width: 28vw; /* Chiều rộng bằng 28% Viewport Width (cho phép hiển thị 3 cột trên hầu hết điện thoại) */
-    max-width: 150px; /* Giữ giới hạn cho desktop */
-    
+    padding: 10px 5px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
     transition: 0.3s;
+    
+    /* Tính toán chiều rộng để luôn có 2 cột đều nhau trên Mobile */
+    width: calc(50% - 15px); 
+    max-width: 150px; /* Giới hạn kích thước tối đa */
+    
+    /* Đảm bảo chiều cao cố định để không bị lệch */
+    height: 140px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Điều chỉnh lại kích thước trên màn hình lớn để hiển thị đẹp hơn */
-@media (min-width: 768px) {
+/* Nếu màn hình nhỏ hơn 480px, cho phép 2 cột */
+@media (max-width: 480px) {
     .category {
-        width: 150px; /* Trở về kích thước cố định khi màn hình đủ rộng */
+        /* 50% - 15px để trừ đi khoảng gap 10px và padding xung quanh */
+        width: calc(50% - 10px); 
+        height: 130px; /* Chiều cao nhỏ hơn chút trên màn hình rất nhỏ */
     }
 }
 
-/* Đảm bảo hình ảnh vẫn cân đối */
-.category img { 
-    width: 60px; /* Giảm kích thước ảnh trên mobile */
-    height: 60px;
-    object-fit: contain; 
-    margin: 0 auto 5px; 
-    display: block; 
+/* Nếu màn hình lớn hơn 768px (Desktop/Tablet ngang), cho phép 6 cột */
+@media (min-width: 768px) {
+    .category {
+        width: 120px; /* Kích thước cố định hơn cho desktop */
+        height: 150px;
+    }
 }
-/* --- PHẦN ĐÃ CHỈNH SỬA CHO MOBILE END --- */
 
 .category:hover { 
     transform: translateY(-5px); 
     box-shadow: 0 6px 15px rgba(0,0,0,0.2); 
 }
+
+/* Đảm bảo hình ảnh và chữ không bị tràn */
+.category img { 
+    width: 60px; 
+    height: 60px;
+    object-fit: contain; 
+    margin: 0 auto 5px; 
+    display: block; 
+}
+
 .category p { 
     font-weight: 600; 
     margin: 5px 0 0; 
-    font-size: 0.8rem; /* Giảm kích thước chữ để vừa hơn */
+    font-size: 0.85rem; 
+    line-height: 1.2;
 }
-/* ... Các phần CSS khác giữ nguyên ... */
 
 /* Products Container Wrapper */
 .products-section-wrapper {
