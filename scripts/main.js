@@ -1,4 +1,4 @@
-// scripts/main.js - Xử lý logic cho cả index.html (featured) và sanpham.html (all products)
+// scripts/main.js - Logic xử lý chia sản phẩm theo danh mục trên sanpham.html
 
 document.addEventListener("DOMContentLoaded", async () => {
     // 1. Xác định trang hiện tại
@@ -8,18 +8,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let productsData = [];
 
-    // Tải dữ liệu sản phẩm một lần
+    // Tải dữ liệu sản phẩm
     try {
         const response = await fetch("products.json"); // Đảm bảo products.json nằm cùng cấp với index.html
         if (!response.ok) throw new Error("Không thể tải dữ liệu sản phẩm.");
         productsData = await response.json();
     } catch (error) {
         console.error("Lỗi tải products.json:", error);
-        // Hiển thị thông báo lỗi trên trang nếu có container sản phẩm
-        const indexContainer = document.querySelector("#featured-products");
-        const sanphamContainer = document.querySelector("#all-products-list");
-        
+        // Hiển thị thông báo lỗi
         const errorMessage = "<p style='color:red; text-align:center; padding: 50px 0;'>Lỗi: Không thể tải danh sách sản phẩm. Kiểm tra file products.json.</p>";
+        
+        const indexContainer = document.querySelector("#featured-products");
+        const sanphamContainer = document.querySelector("#all-products-sections"); 
         
         if (indexContainer) indexContainer.innerHTML = errorMessage;
         if (sanphamContainer) sanphamContainer.innerHTML = errorMessage;
@@ -27,10 +27,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         return; 
     }
 
-    // --- Hàm tạo HTML cho danh sách sản phẩm ---
-    const createProductGrid = (products, title) => {
+    // --- Hàm tạo HTML cho lưới sản phẩm ---
+    const createProductGrid = (products) => {
         return `
-            <h2>${title}</h2>
             <div class="product-grid">
                 ${products.map(p => `
                     <div class="product">
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
     };
 
-    // --- Xử lý Trang INDEX.HTML (Sản phẩm tiêu biểu) ---
+    // --- Xử lý Trang INDEX.HTML (8 Sản phẩm tiêu biểu) ---
     if (isIndexPage) {
         const indexProductsContainer = document.querySelector("#featured-products");
         if (indexProductsContainer) {
@@ -55,12 +54,36 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // --- Xử lý Trang SANPHAM.HTML (Tất cả sản phẩm) ---
+    // --- Xử lý Trang SANPHAM.HTML (Sản phẩm theo Danh mục) ---
     else if (isSanPhamPage) {
-        const sanPhamContainer = document.querySelector("#all-products-list");
+        const sanPhamContainer = document.querySelector("#all-products-sections");
         if (sanPhamContainer) {
-            // Hiển thị tất cả sản phẩm
-            sanPhamContainer.innerHTML = createProductGrid(productsData, "Tất cả Sản phẩm");
+            
+            // 2. Nhóm sản phẩm theo category (YÊU CẦU: products.json phải có thuộc tính 'category')
+            const groupedProducts = productsData.reduce((acc, product) => {
+                const category = product.category || "Chưa phân loại"; 
+                if (!acc[category]) {
+                    acc[category] = [];
+                }
+                acc[category].push(product);
+                return acc;
+            }, {});
+
+            let fullHtml = '<h1 style="text-align: center; color: #023e8a; margin-bottom: 40px; font-size: 2.2rem;">DANH MỤC SẢN PHẨM</h1>';
+
+            // 3. Tạo HTML cho từng nhóm danh mục
+            for (const categoryName in groupedProducts) {
+                if (groupedProducts.hasOwnProperty(categoryName)) {
+                    fullHtml += `
+                        <section class="category-product-section">
+                            <h2 class="category-title">${categoryName}</h2>
+                            ${createProductGrid(groupedProducts[categoryName])}
+                        </section>
+                        <div class="separator"></div>
+                    `;
+                }
+            }
+            sanPhamContainer.innerHTML = fullHtml;
         }
     }
 });
