@@ -62,16 +62,10 @@ nav a:hover { color:#90e0ef; }
 .products .product:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
 
-.products img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;       /* bắt buộc để margin auto hoạt động */
-  margin: 0 auto 5px;  /* 0 trên, auto trái/phải, 10px dưới */
-}
+
+
+
 /* styles/style.css - tích hợp viền ảnh động */
 
 /* Giữ nguyên các thông số hiện tại của sản phẩm */
