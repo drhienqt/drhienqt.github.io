@@ -2,7 +2,7 @@
 
 /* Reset cơ bản và font */
 * { box-sizing: border-box; }
-body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#f0f4f8; color:#023e8a; }
+body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f0f4f8; color:#023e8a; }
 
 /* Navigation */
 nav { display:flex; justify-content:center; background:#0077b6; padding:20px; }
