@@ -1,6 +1,7 @@
-/* styles/style.css - phiên bản đầy đủ hiện đại và responsive với viền ảnh động */
+/* styles/style.css - phiên bản sửa lỗi sản phẩm vẫn hàng ngang + viền ảnh động */
 
 /* Reset cơ bản và font */
+* { box-sizing: border-box; }
 body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#f0f4f8; color:#023e8a; }
 
 /* Navigation */
@@ -27,7 +28,7 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 /* Products */
 .products { padding: 40px 20px; background: #e0fbfc; text-align: center; display:flex; flex-wrap:wrap; justify-content:center; gap:25px; }
 .products h2 { font-size: 2rem; margin-bottom: 30px; color: #023e8a; }
-.product { background: #ffffff; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: 180px; text-align: center; padding: 15px; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+.product { background: #ffffff; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: calc(180px - 8px); text-align: center; padding: 15px; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
 .product:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
 .product h3 { font-size: 1rem; color: #023e8a; font-weight: 600; margin: 10px 0 5px; }
 .product p { font-size: 1rem; color: #0077b6; font-weight: 600; margin:3px 0; }
@@ -58,6 +59,7 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
     background: linear-gradient(90deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff, #ffbe0b);
     background-size: 400% 400%;
     z-index: -1;
+    pointer-events: none;
     animation: gradient-border 5s ease infinite;
 }
 .product:hover img {
