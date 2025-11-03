@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Tải dữ liệu từ products.json
-  fetch("products.json")
+  fetch("mainproducts.json")
     .then(res => res.json())
     .then(data => {
       if (!Array.isArray(data)) throw new Error("Dữ liệu không hợp lệ!");
