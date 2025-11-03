@@ -166,3 +166,74 @@ nav a:hover { color:#90e0ef; }
 .category-section h2:hover::after {
   width: 50%;
 }
+/* Hiệu ứng sản phẩm hiện đại */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 30px 10px;
+}
+
+.product {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 180px;
+  text-align: center;
+  padding: 15px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover img {
+  transform: scale(1.07);
+  box-shadow: 0 0 15px rgba(0, 150, 199, 0.3);
+}
+
+.product h3 {
+  font-size: 1rem;
+  color: #023e8a;
+  font-weight: 600;
+  margin: 10px 0 5px;
+}
+
+.product a {
+  display: inline-block;
+  margin-top: auto;
+  padding: 8px 12px;
+  background: #0077b6;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.product a:hover {
+  background: #023e8a;
+}
+
+/* Tiêu đề danh mục nổi bật */
+.category-section h2 {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(90deg, #0077b6, #0096c7);
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
