@@ -72,6 +72,51 @@ nav a:hover { color:#90e0ef; }
   display: block;       /* bắt buộc để margin auto hoạt động */
   margin: 0 auto 5px;  /* 0 trên, auto trái/phải, 10px dưới */
 }
+/* styles/style.css - tích hợp viền ảnh động */
+
+/* Giữ nguyên các thông số hiện tại của sản phẩm */
+.product img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 0 auto 10px;
+    border-radius: 15px; /* bo góc */
+    padding: 4px; /* tạo khoảng cách viền */
+    background: linear-gradient(135deg, #0096c7, #023e8a);
+    transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease, background 1.5s linear;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* Tạo viền động bằng pseudo-element */
+.product img::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 19px; /* bằng border-radius + padding */
+    padding: 0;
+    background: linear-gradient(90deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff, #ffbe0b);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: gradient-border 5s ease infinite;
+}
+
+/* Hover ảnh */
+.product:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 150, 199, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Animation gradient chạy vòng quanh */
+@keyframes gradient-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 }
 
