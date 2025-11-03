@@ -1,4 +1,4 @@
-// scripts/main.js - Logic xử lý chia sản phẩm theo danh mục trên sanpham.html
+// scripts/main.js - Logic xử lý đa trang, có lọc sản phẩm rỗng
 
 document.addEventListener("DOMContentLoaded", async () => {
     // 1. Xác định trang hiện tại
@@ -10,13 +10,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Tải dữ liệu sản phẩm
     try {
-        const response = await fetch("products.json"); // Đảm bảo products.json nằm cùng cấp với index.html
-        if (!response.ok) throw new Error("Không thể tải dữ liệu sản phẩm.");
+        const response = await fetch("products.json"); 
+        if (!response.ok) throw new Error("Không thể tải dữ liệu sản phẩm. Mã lỗi: " + response.status);
         productsData = await response.json();
     } catch (error) {
         console.error("Lỗi tải products.json:", error);
-        // Hiển thị thông báo lỗi
-        const errorMessage = "<p style='color:red; text-align:center; padding: 50px 0;'>Lỗi: Không thể tải danh sách sản phẩm. Kiểm tra file products.json.</p>";
+        
+        // Hiển thị thông báo lỗi nếu tải file thất bại
+        const errorMessage = "<p style='color:red; text-align:center; padding: 50px 0;'>⚠️ Lỗi: Không thể tải danh sách sản phẩm. Vui lòng kiểm tra đường dẫn hoặc cú pháp file products.json.</p>";
         
         const indexContainer = document.querySelector("#featured-products");
         const sanphamContainer = document.querySelector("#all-products-sections"); 
@@ -27,8 +28,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         return; 
     }
 
+    // --- Lọc sản phẩm: Chỉ giữ lại những sản phẩm có Tên và Ảnh ---
+    const validProducts = productsData.filter(p => p.name && p.image && p.name.trim() !== "" && p.image.trim() !== "");
+
+
     // --- Hàm tạo HTML cho lưới sản phẩm ---
     const createProductGrid = (products) => {
+        if (products.length === 0) {
+            return "<p style='text-align:center; padding: 20px 0;'>Không tìm thấy sản phẩm nào trong danh mục này.</p>";
+        }
         return `
             <div class="product-grid">
                 ${products.map(p => `
@@ -48,9 +56,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (isIndexPage) {
         const indexProductsContainer = document.querySelector("#featured-products");
         if (indexProductsContainer) {
-            // Lấy 8 sản phẩm tiêu biểu
-            const featured = productsData.slice(0, 8);
-            indexProductsContainer.innerHTML = createProductGrid(featured, "Sản phẩm tiêu biểu");
+            // Lấy 8 sản phẩm hợp lệ đầu tiên
+            const featured = validProducts.slice(0, 8);
+            indexProductsContainer.innerHTML = `
+                <h2 style="text-align:center;">Sản phẩm tiêu biểu</h2>
+                ${createProductGrid(featured)}
+            `;
         }
     }
 
@@ -59,8 +70,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const sanPhamContainer = document.querySelector("#all-products-sections");
         if (sanPhamContainer) {
             
-            // 2. Nhóm sản phẩm theo category (YÊU CẦU: products.json phải có thuộc tính 'category')
-            const groupedProducts = productsData.reduce((acc, product) => {
+            // 2. Nhóm sản phẩm hợp lệ theo category
+            const groupedProducts = validProducts.reduce((acc, product) => {
                 const category = product.category || "Chưa phân loại"; 
                 if (!acc[category]) {
                     acc[category] = [];
