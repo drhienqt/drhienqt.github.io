@@ -1,4 +1,4 @@
-/* styles/style.css - PHIÊN BẢN ĐIỀU CHỈNH CÂN ĐỐI GIAO DIỆN VÀ FIX LỖI ẢNH ĐỘNG */
+/* styles/style.css - PHIÊN BẢN HOÀN CHỈNH: Fix lỗi cân đối, lỗi tiêu đề và tối ưu hiệu ứng viền động */
 
 /* Reset cơ bản và font */
 * { box-sizing: border-box; }
@@ -16,7 +16,7 @@ nav a:hover { color:#90e0ef; }
 .hero h1 { font-size:2.5rem; font-weight:800; margin-bottom:15px; }
 .hero p { font-size:1.2rem; color:#caf0f8; }
 
-/* Categories - ĐIỀU CHỈNH CÂN ĐỐI */
+/* Categories - ĐÃ CÂN ĐỐI */
 categories { padding:40px 20px; background:#caf0f8; text-align:center; }
 categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .category-tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; }
@@ -27,7 +27,7 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
     background:#ffffff; 
     border-radius:10px; 
     padding:10px; /* Tăng padding */
-    width:150px; /* Kích thước cố định lớn hơn một chút */
+    width:150px; /* Kích thước đồng đều */
     /* LOẠI BỎ HEIGHT CỐ ĐỊNH */
     box-shadow:0 4px 10px rgba(0,0,0,0.1); 
     transition:0.3s;
@@ -35,22 +35,42 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .category:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
 .category img { 
     width:80px; 
-    height:80px; /* Kích thước đồng nhất */
-    object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
+    height:80px; 
+    object-fit: contain; /* Đảm bảo logo/ảnh không bị méo */
     margin:0 auto 5px; 
-    display: block; /* Cần thiết để căn giữa */
+    display: block; 
 }
 .category p { font-weight:600; margin: 5px 0 0; }
 
-/* Products - ĐIỀU CHỈNH CÂN ĐỐI */
-.products { padding: 40px 20px; background: #e0fbfc; text-align: center; display:flex; flex-wrap:wrap; justify-content:center; gap:20px; } /* Giảm gap nhẹ */
-.products h2 { font-size: 2rem; margin-bottom: 30px; color: #023e8a; }
+/* Products */
+.products { 
+    padding: 40px 20px; 
+    background: #e0fbfc; 
+    text-align: center; 
+    display:flex; 
+    flex-wrap:wrap; 
+    justify-content:center; 
+    gap:20px; 
+} 
+
+/* SỬA LỖI TIÊU ĐỀ: Buộc tiêu đề chiếm toàn bộ chiều rộng (100%) để nó xuống dòng */
+.products h2 { 
+    width: 100%; 
+    font-size: 2rem; 
+    text-align: left; /* Căn lề trái để nổi bật hơn */
+    margin-bottom: 30px; 
+    color: #023e8a; 
+    padding-left: 0; /* Đảm bảo không có padding thừa */
+}
+
+/* SẢN PHẨM: Đảm bảo cân đối và lấp đầy không gian */
 .product { 
     background: #ffffff; 
     border-radius: 15px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
-    width: calc(20% - 16px); /* Hiển thị 5 sản phẩm/hàng trên màn hình lớn */
-    min-width: 150px; /* Giới hạn chiều rộng nhỏ nhất */
+    flex-basis: 180px; /* Chiều rộng cơ sở, hiển thị 4-5 sản phẩm/hàng */
+    flex-grow: 1; /* Cho phép giãn ra nếu không đủ sản phẩm lấp đầy hàng */
+    min-width: 150px; 
     text-align: center; 
     padding: 15px; 
     transition: all 0.3s ease; 
@@ -64,12 +84,12 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .product a { display:inline-block; margin-top:auto; padding:8px 12px; background:#0077b6; color:#fff; text-decoration:none; border-radius:6px; transition:background 0.3s ease; }
 .product a:hover { background:#023e8a; }
 
-/* --- CSS SỬA LỖI VIỀN ẢNH ĐỘNG VÀ ÁP DỤNG CHO WRAPPER --- */
+/* --- CSS VIỀN ẢNH ĐỘNG VÀ WRAPPER --- */
 
-/* 1. Wrapper chứa ảnh (Áp dụng viền động tại đây) */
+/* 1. Wrapper chứa ảnh (Nơi áp dụng viền động) */
 .product-image-wrapper {
     position: relative;
-    width: 140px; /* Tăng kích thước ảnh nổi bật hơn */
+    width: 140px; /* Kích thước hình ảnh nổi bật hơn */
     height: 140px;
     margin: 0 auto 10px;
     border-radius: 15px;
@@ -124,7 +144,7 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
     100% { background-position: 0% 50%; }
 }
 
-/* --- KẾT THÚC PHẦN SỬA LỖI VIỀN ẢNH ĐỘNG --- */
+/* --- KẾT THÚC CSS VIỀN ẢNH ĐỘNG --- */
 
 /* Modal */
 .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000; }
@@ -146,20 +166,20 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 /* Responsive - ĐIỀU CHỈNH CÂN ĐỐI TRÊN MÀN HÌNH NHỎ */
 @media(max-width:1200px) {
     /* Màn hình desktop nhỏ/laptop: 4 sản phẩm/hàng */
-    .products .product { width: calc(25% - 15px); }
+    .products .product { flex-basis: 220px; }
 }
 @media(max-width:992px) {
     /* Tablet lớn: 3 sản phẩm/hàng */
-    .products .product { width: calc(33.333% - 14px); }
+    .products .product { flex-basis: 250px; }
 }
 @media(max-width:768px) {
     /* Tablet: 2 sản phẩm/hàng */
   .category-tabs { gap:15px; }
-  .products .product { width: calc(50% - 12px); }
+  .products .product { flex-basis: 40%; } /* Dùng phần trăm để cân đối hơn */
 }
 @media(max-width:480px) {
     /* Mobile: 1 sản phẩm/hàng */
-  .products .product { width: 100%; }
+  .products .product { flex-basis: 100%; }
   nav { flex-direction:column; }
   nav a { margin:5px 0; }
 }
