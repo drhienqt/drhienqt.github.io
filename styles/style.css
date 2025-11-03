@@ -1,4 +1,4 @@
-/* styles/style.css - Đã sửa lỗi JS và tối ưu hiệu ứng viền ảnh động */
+/* styles/style.css - PHIÊN BẢN ĐIỀU CHỈNH CÂN ĐỐI GIAO DIỆN VÀ FIX LỖI ẢNH ĐỘNG */
 
 /* Reset cơ bản và font */
 * { box-sizing: border-box; }
@@ -16,19 +16,48 @@ nav a:hover { color:#90e0ef; }
 .hero h1 { font-size:2.5rem; font-weight:800; margin-bottom:15px; }
 .hero p { font-size:1.2rem; color:#caf0f8; }
 
-/* Categories */
+/* Categories - ĐIỀU CHỈNH CÂN ĐỐI */
 categories { padding:40px 20px; background:#caf0f8; text-align:center; }
 categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .category-tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; }
-.category { text-align:center; text-decoration:none; color:#023e8a; background:#ffffff; border-radius:10px; padding:5px; width:140px;height:140px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
+.category { 
+    text-align:center; 
+    text-decoration:none; 
+    color:#023e8a; 
+    background:#ffffff; 
+    border-radius:10px; 
+    padding:10px; /* Tăng padding */
+    width:150px; /* Kích thước cố định lớn hơn một chút */
+    /* LOẠI BỎ HEIGHT CỐ ĐỊNH */
+    box-shadow:0 4px 10px rgba(0,0,0,0.1); 
+    transition:0.3s;
+}
 .category:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
-.category img { width:120px; height:100px; margin-bottom:1px; }
-.category p { font-weight:600; }
+.category img { 
+    width:80px; 
+    height:80px; /* Kích thước đồng nhất */
+    object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
+    margin:0 auto 5px; 
+    display: block; /* Cần thiết để căn giữa */
+}
+.category p { font-weight:600; margin: 5px 0 0; }
 
-/* Products */
-.products { padding: 40px 20px; background: #e0fbfc; text-align: center; display:flex; flex-wrap:wrap; justify-content:center; gap:25px; }
+/* Products - ĐIỀU CHỈNH CÂN ĐỐI */
+.products { padding: 40px 20px; background: #e0fbfc; text-align: center; display:flex; flex-wrap:wrap; justify-content:center; gap:20px; } /* Giảm gap nhẹ */
 .products h2 { font-size: 2rem; margin-bottom: 30px; color: #023e8a; }
-.product { background: #ffffff; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: calc(180px - 8px); text-align: center; padding: 15px; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+.product { 
+    background: #ffffff; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+    width: calc(20% - 16px); /* Hiển thị 5 sản phẩm/hàng trên màn hình lớn */
+    min-width: 150px; /* Giới hạn chiều rộng nhỏ nhất */
+    text-align: center; 
+    padding: 15px; 
+    transition: all 0.3s ease; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
 .product:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
 .product h3 { font-size: 1rem; color: #023e8a; font-weight: 600; margin: 10px 0 5px; }
 .product p { font-size: 1rem; color: #0077b6; font-weight: 600; margin:3px 0; }
@@ -40,14 +69,13 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 /* 1. Wrapper chứa ảnh (Áp dụng viền động tại đây) */
 .product-image-wrapper {
     position: relative;
-    width: 120px; 
-    height: 120px;
+    width: 140px; /* Tăng kích thước ảnh nổi bật hơn */
+    height: 140px;
     margin: 0 auto 10px;
     border-radius: 15px;
     padding: 4px; 
     overflow: hidden; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    /* Dùng background tĩnh cho wrapper nếu muốn màu nền mặc định */
     background: linear-gradient(135deg, #0096c7, #023e8a);
 }
 
@@ -60,7 +88,6 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
     right: -5px;
     bottom: -5px;
     border-radius: 19px; 
-    /* Dải màu gradient động */
     background: linear-gradient(90deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff, #ffbe0b);
     background-size: 400% 400%;
     z-index: 0;
@@ -72,9 +99,9 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .product img {
     width: 100%; 
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; 
     position: relative;
-    z-index: 1; /* Đảm bảo ảnh nằm trên viền động */
+    z-index: 1; 
     border-radius: 12px; 
     transition: transform 0.5s ease;
     filter: brightness(1);
@@ -86,7 +113,7 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 }
 
 .product:hover img {
-    transform: scale(1.05); /* Ảnh zoom nhẹ khi hover */
+    transform: scale(1.05); 
     filter: brightness(1.1);
 }
 
@@ -116,13 +143,23 @@ categories h2 { font-size:2rem; margin-bottom:20px; color:#023e8a; }
 .btn { padding:12px 25px; background:#0077b6; color:white; font-weight:600; border:none; border-radius:8px; cursor:pointer; transition:0.3s; }
 .btn:hover { background:#023e8a; }
 
-/* Responsive */
+/* Responsive - ĐIỀU CHỈNH CÂN ĐỐI TRÊN MÀN HÌNH NHỎ */
+@media(max-width:1200px) {
+    /* Màn hình desktop nhỏ/laptop: 4 sản phẩm/hàng */
+    .products .product { width: calc(25% - 15px); }
+}
+@media(max-width:992px) {
+    /* Tablet lớn: 3 sản phẩm/hàng */
+    .products .product { width: calc(33.333% - 14px); }
+}
 @media(max-width:768px) {
+    /* Tablet: 2 sản phẩm/hàng */
   .category-tabs { gap:15px; }
-  .products .product { width:45%; }
+  .products .product { width: calc(50% - 12px); }
 }
 @media(max-width:480px) {
-  .products .product { width:100%; }
+    /* Mobile: 1 sản phẩm/hàng */
+  .products .product { width: 100%; }
   nav { flex-direction:column; }
   nav a { margin:5px 0; }
 }
