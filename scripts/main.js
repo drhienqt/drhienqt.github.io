@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Tạo giao diện hiển thị sản phẩm
     const html = `
       <h2>Sản phẩm tiêu biểu</h2>
-      <div class="product-list">
+      <div class="products">
         ${featured
           .map(
             (p) => `
