@@ -9,6 +9,9 @@ nav { display:flex; justify-content:center; background:#0077b6; padding:20px; }
 nav a { margin:0 15px; text-decoration:none; color:#ffffff; font-weight:650; font-size:18px; transition:0.5s; }
 nav a:hover { color:#90e0ef; }
 
+/* Header Banner */
+#banner-img { max-height: 200px; object-fit: cover; }
+
 /* Hero section */
 .hero { position:relative; text-align:center; color:white; background:#0096c7; padding:80px 20px; border-bottom:5px solid #023e8a; overflow:hidden; }
 .hero::before { content: ''; position:absolute; top:0; left:0; width:100%; height:100%; background: url('https://drhienqt.github.io/assets/img/hinnen1.png') no-repeat center center/cover; opacity:0.3; z-index:0; }
@@ -29,22 +32,20 @@ nav a:hover { color:#90e0ef; }
 .category img { width:80px; height:80px; object-fit: contain; margin:0 auto 5px; display: block; }
 .category p { font-weight:600; margin: 5px 0 0; }
 
-/* Products Container - Dùng cho cả #featured-products và #all-products-list */
+/* Products Container Wrapper */
 .products-section-wrapper {
     padding: 40px 20px; 
     background: #e0fbfc; 
     text-align: center; 
 }
 
-/* Tiêu đề (fix lỗi đẩy dòng) */
-.products-section-wrapper h2 { 
+/* Tiêu đề Sản phẩm tiêu biểu (index.html) */
+#featured-products h2 { 
     width: 100%; 
     font-size: 2rem; 
-    text-align: left; 
-    margin: 0 auto 30px; 
+    text-align: center; 
+    margin: 0 0 30px;
     color: #023e8a; 
-    max-width: 1300px; /* Đồng bộ với lưới */
-    padding: 0 10px;
 }
 
 /* Product Grid - Bố cục chính cho sản phẩm */
@@ -54,7 +55,7 @@ nav a:hover { color:#90e0ef; }
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
     gap: 20px;
     justify-content: center;
-    max-width: 1300px; /* Giới hạn chiều rộng tổng thể */
+    max-width: 1300px; 
     margin: 0 auto;
     text-align: left;
 }
@@ -108,8 +109,6 @@ nav a:hover { color:#90e0ef; }
     transition: transform 0.5s ease;
     filter: brightness(1);
 }
-.product:hover .product-image-wrapper { box-shadow: 0 0 20px rgba(0,150,199,0.4); }
-.product:hover img { transform: scale(1.05); filter: brightness(1.1); }
 @keyframes gradient-border {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -117,7 +116,37 @@ nav a:hover { color:#90e0ef; }
 }
 /* --- KẾT THÚC CSS VIỀN ẢNH ĐỘNG --- */
 
-/* Modal */
+
+/* Style Bổ sung cho Trang SANPHAM.HTML (Chia theo Danh mục) */
+
+/* Định dạng cho từng khối sản phẩm theo danh mục */
+.category-product-section {
+    margin-bottom: 50px;
+    padding: 20px 0;
+}
+
+/* Tiêu đề cho từng danh mục */
+.category-product-section .category-title {
+    font-size: 1.8rem;
+    color: #0077b6;
+    text-align: center;
+    margin: 0 auto 25px; /* Căn giữa và tạo khoảng cách */
+    border-bottom: 3px solid #0096c7;
+    display: table; /* Quan trọng: giúp border-bottom chỉ rộng bằng nội dung */
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+/* Thanh phân cách giữa các danh mục */
+.separator {
+    width: 80%;
+    max-width: 1200px;
+    height: 1px;
+    background-color: #ccc;
+    margin: 40px auto;
+}
+
+/* Modal và Social Buttons giữ nguyên */
 .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000; }
 .modal-content { background:#ffffff; padding:20px; width:90%; max-width:600px; border-radius:15px; overflow-y:auto; max-height:90%; }
 .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
@@ -126,11 +155,10 @@ nav a:hover { color:#90e0ef; }
 .picker-card { display:flex; gap:10px; border-bottom:1px solid #ddd; padding:10px; align-items:center; transition:0.3s; }
 .picker-card:hover { background:#f0f4f8; }
 .picker-card img { width:80px; height:80px; object-fit:cover; border-radius:10px; }
-
-/* Social buttons */
 .social-buttons { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:2000; }
 .social-buttons a img { width:45px; height:45px; transition:0.3s; }
 .social-buttons a img:hover { transform:scale(1.1); }
+
 
 /* Responsive */
 @media(max-width:992px) {
