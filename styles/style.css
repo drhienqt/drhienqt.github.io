@@ -46,7 +46,7 @@ nav a:hover { color:#90e0ef; }
     /* Đảm bảo căn giữa container */
     justify-content: center; 
     gap: 10px; /* Giảm khoảng cách giữa các mục */
-    max-width: 900px; /* Giới hạn chiều rộng cho desktop */
+    max-width: 1100px; /* Giới hạn chiều rộng cho desktop */
     margin: 0 auto;
 }
 
