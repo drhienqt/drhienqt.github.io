@@ -1,7 +1,7 @@
-/* styles/style.css - Tối ưu cho cấu trúc đa trang và Grid Layout */
+/* styles/style.css - Đã sửa lỗi bố cục chung và Banner */
 
 /* Reset cơ bản và font */
-* { box-sizing: border-box; }
+* { box-sizing: border-box; } /* Đảm bảo padding và border không làm tăng kích thước tổng thể */
 body { 
     font-family: 'Roboto', sans-serif; 
     margin:0; 
@@ -12,11 +12,11 @@ body {
 
 /* --- CSS CHO HEADER CHÍNH --- */
 .main-header {
-    background: #ffffff; /* Để Banner và Nav tự định màu */
+    background: #ffffff; 
     width: 100%;
     margin: 0;
     padding: 0;
-    position: relative; /* Quan trọng: Để banner-overlay-logo định vị tương đối với header */
+    position: relative; 
 }
 
 /* Header Banner */
@@ -25,26 +25,25 @@ body {
     width: 100%; 
     display: block; 
     height: auto; 
-    /* Đảm bảo Nav dính sát vào Banner */
     margin-bottom: 0; 
 }
 
 /* --- CSS MỚI CHO LOGO VÀ SLOGAN NỔI TRÊN BANNER --- */
 .banner-overlay-logo {
     position: absolute;
-    top: 20px; /* Điều chỉnh vị trí từ trên xuống */
-    right: 20px; /* Điều chỉnh vị trí từ phải vào */
-    z-index: 10; /* Đảm bảo nổi lên trên banner */
-    text-align: right; /* Căn logo và slogan về bên phải */
-    color: #ffffff; /* Màu chữ cho slogan */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Tạo bóng để chữ dễ đọc */
+    top: 20px; 
+    right: 20px; 
+    z-index: 10; 
+    text-align: right; 
+    color: #ffffff; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
 }
 
 .logo-on-banner img {
-    height: 80px; /* Điều chỉnh kích thước logo của bạn */
+    height: 80px; 
     width: auto;
     display: block;
-    margin-left: auto; /* Căn ảnh logo về bên phải */
+    margin-left: auto; 
     margin-bottom: 5px;
 }
 
@@ -84,7 +83,7 @@ nav a:hover { color:#90e0ef; }
 .hero h1 { font-size:2.5rem; font-weight:800; margin-bottom:15px; }
 .hero p { font-size:1.2rem; color:#caf0f8; }
 
-/* --- PHẦN CATEGORIES --- */
+/* --- PHẦN CATEGORIES (Đã sửa max-width để chứa 7 mục) --- */
 .categories { 
     padding: 30px 10px; 
     background: #caf0f8; 
@@ -183,7 +182,8 @@ nav a:hover { color:#90e0ef; }
 /* Product Grid - Bố cục chính cho sản phẩm */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    /* KHẮC PHỤC: Sử dụng minmax() linh hoạt hơn */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 20px;
     justify-content: center;
     max-width: 1300px; 
@@ -203,5 +203,127 @@ nav a:hover { color:#90e0ef; }
     flex-direction: column; 
     justify-content: space-between; 
     height: 100%; 
+    /* KHẮC PHỤC: Thêm min-width để tránh bị co quá mức trên màn hình nhỏ */
+    min-width: 150px; 
 }
 .product:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+.product h3 { font-size: 1rem; color: #023e8a; font-weight: 600; margin: 10px 0 5px; }
+.product a { display:inline-block; margin-top:auto; padding:8px 12px; background:#0077b6; color:#fff; text-decoration:none; border-radius:6px; transition:background 0.3s ease; }
+.product a:hover { background:#023e8a; }
+
+/* --- CSS VIỀN ẢNH ĐỘNG VÀ WRAPPER --- */
+.product-image-wrapper {
+    position: relative;
+    width: 140px; 
+    height: 140px;
+    margin: 0 auto 10px;
+    border-radius: 15px;
+    padding: 4px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    background: linear-gradient(135deg, #0096c7, #023e8a);
+}
+.product-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border-radius: 19px; 
+    background: linear-gradient(90deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff, #ffbe0b);
+    background-size: 400% 400%;
+    z-index: 0;
+    pointer-events: none;
+    animation: gradient-border 5s ease infinite;
+}
+.product img {
+    width: 100%; height: 100%;
+    object-fit: cover; 
+    position: relative; z-index: 1; 
+    border-radius: 12px; 
+    transition: transform 0.5s ease;
+    filter: brightness(1);
+}
+@keyframes gradient-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* --- KẾT THÚC CSS VIỀN ẢNH ĐỘNG --- */
+
+
+/* Style Bổ sung cho Trang SANPHAM.HTML (Chia theo Danh mục) */
+
+/* Định dạng cho từng khối sản phẩm theo danh mục */
+.category-product-section {
+    margin-bottom: 50px;
+    padding: 20px 0;
+}
+
+/* Tiêu đề cho từng danh mục */
+.category-product-section .category-title {
+    font-size: 1.8rem;
+    color: #0077b6;
+    text-align: center;
+    margin: 0 auto 25px; 
+    border-bottom: 3px solid #0096c7;
+    display: table; 
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+/* Thanh phân cách giữa các danh mục */
+.separator {
+    width: 80%;
+    max-width: 1200px;
+    height: 1px;
+    background-color: #ccc;
+    margin: 40px auto;
+}
+
+/* Modal và Social Buttons giữ nguyên */
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000; }
+.modal-content { background:#ffffff; padding:20px; width:90%; max-width:600px; border-radius:15px; overflow-y:auto; max-height:90%; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.modal-search input { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; margin-bottom:15px; }
+.picker-list { max-height: 400px; overflow-y: auto; }
+.picker-card { display:flex; gap:10px; border-bottom:1px solid #ddd; padding:10px; align-items:center; transition:0.3s; }
+.picker-card:hover { background:#f0f4f8; }
+.picker-card img { width:80px; height:80px; object-fit:cover; border-radius:10px; }
+.social-buttons { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:2000; }
+.social-buttons a img { width:45px; height:45px; transition:0.3s; }
+.social-buttons a img:hover { transform:scale(1.1); }
+
+
+/* Responsive */
+@media(max-width:992px) {
+    .product-grid { 
+        /* KHẮC PHỤC: Đảm bảo sản phẩm không bị co quá nhỏ trên tablet */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    }
+}
+@media(max-width:768px) {
+    /* Điều chỉnh vị trí logo trên banner cho màn hình nhỏ */
+    .banner-overlay-logo {
+        top: 10px;
+        right: 10px;
+    }
+    .logo-on-banner img {
+        height: 60px; /* Logo nhỏ hơn trên mobile */
+    }
+    .slogan-on-banner {
+        font-size: 0.9rem;
+    }
+    
+    .product-grid { 
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    }
+}
+@media(max-width:480px) {
+    .product-grid { 
+        /* Trên điện thoại, chỉ 1 cột */
+        grid-template-columns: 1fr; 
+    }
+    nav { flex-direction:column; }
+    nav a { margin:5px 0; }
+}
+
+footer { background:#023e8a; color:white; text-align:center; padding:20px; margin-top:40px; }
