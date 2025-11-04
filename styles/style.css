@@ -1,7 +1,7 @@
 /* styles/style.css - Đã sửa lỗi bố cục chung và Banner */
 
 /* Reset cơ bản và font */
-* { box-sizing: border-box; } /* Đảm bảo padding và border không làm tăng kích thước tổng thể */
+* { box-sizing: border-box; } /* Quan trọng: Đảm bảo padding và border không làm tràn kích thước */
 body { 
     font-family: 'Roboto', sans-serif; 
     margin:0; 
@@ -10,16 +10,16 @@ body {
     color:#023e8a; 
 }
 
-/* --- CSS CHO HEADER CHÍNH --- */
+/* --- HEADER VÀ BANNER (LỚP 1) --- */
 .main-header {
     background: #ffffff; 
     width: 100%;
     margin: 0;
     padding: 0;
-    position: relative; 
+    position: relative; /* Quan trọng: Để banner-overlay-logo định vị tương đối */
 }
 
-/* Header Banner */
+/* Banner Ảnh (Nền) */
 #banner-img { 
     object-fit: cover; 
     width: 100%; 
@@ -28,7 +28,7 @@ body {
     margin-bottom: 0; 
 }
 
-/* --- CSS MỚI CHO LOGO VÀ SLOGAN NỔI TRÊN BANNER --- */
+/* --- LOGO VÀ SLOGAN NỔI (LỚP 2) --- */
 .banner-overlay-logo {
     position: absolute;
     top: 20px; 
@@ -40,7 +40,7 @@ body {
 }
 
 .logo-on-banner img {
-    height: 80px; 
+    height: 60px; /* ĐIỀU CHỈNH: Giảm từ 80px xuống 60px */
     width: auto;
     display: block;
     margin-left: auto; 
@@ -48,18 +48,17 @@ body {
 }
 
 .slogan-on-banner {
-    font-size: 1.1rem;
+    font-size: 1rem; /* ĐIỀU CHỈNH: Giảm từ 1.1rem xuống 1rem */
     font-weight: 500;
     margin: 0;
 }
-/* --- KẾT THÚC CSS MỚI CHO LOGO VÀ SLOGAN --- */
 
 
-/* Navigation (Màu nền xanh đậm cho Nav) */
+/* --- NAVIGATION (LỚP 3) --- */
 nav { 
     display:flex; 
     justify-content:center; 
-    background:#0077b6; 
+    background:#0077b6; /* Màu nền cho thanh Nav */
     padding:15px 0; 
     margin: 0;
 }
@@ -67,23 +66,30 @@ nav a { margin:0 15px; text-decoration:none; color:#ffffff; font-weight:650; fon
 nav a:hover { color:#90e0ef; }
 
 
-/* Hero section */
+/* --- HERO SECTION (ĐÃ THU GỌN) --- */
 .hero { 
     position:relative; 
     text-align:center; 
     color:white; 
     background:#0096c7; 
-    padding:80px 20px; 
+    padding:40px 20px; /* ĐIỀU CHỈNH: Giảm từ 80px xuống 40px */
     border-bottom:5px solid #023e8a; 
     overflow:hidden; 
     margin-top: 0; 
 }
 .hero::before { content: ''; position:absolute; top:0; left:0; width:100%; height:100%; background: url('https://drhienqt.github.io/assets/img/hinnen1.png') no-repeat center center/cover; opacity:0.3; z-index:0; }
 .hero h1, .hero p { position:relative; z-index:1; }
-.hero h1 { font-size:2.5rem; font-weight:800; margin-bottom:15px; }
-.hero p { font-size:1.2rem; color:#caf0f8; }
+.hero h1 { 
+    font-size: 2rem; /* ĐIỀU CHỈNH: Giảm từ 2.5rem xuống 2rem */
+    font-weight:800; 
+    margin-bottom:15px; 
+}
+.hero p { 
+    font-size: 1rem; /* ĐIỀU CHỈNH: Giảm từ 1.2rem xuống 1rem */
+    color:#caf0f8; 
+}
 
-/* --- PHẦN CATEGORIES (Đã sửa max-width để chứa 7 mục) --- */
+/* --- PHẦN DANH MỤC NỔI BẬT (Giữ nguyên) --- */
 .categories { 
     padding: 30px 10px; 
     background: #caf0f8; 
@@ -94,8 +100,6 @@ nav a:hover { color:#90e0ef; }
     margin-bottom: 25px; 
     color: #023e8a; 
 }
-
-/* Container dùng Flexbox */
 .category-tabs { 
     display: flex; 
     flex-wrap: wrap; 
@@ -104,8 +108,6 @@ nav a:hover { color:#90e0ef; }
     max-width: 1100px; 
     margin: 0 auto;
 }
-
-/* Mục Danh mục (Category Item) */
 .category { 
     text-align: center; 
     text-decoration: none; 
@@ -115,39 +117,18 @@ nav a:hover { color:#90e0ef; }
     padding: 10px 5px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
     transition: 0.3s;
-    
     width: calc(50% - 15px); 
     max-width: 150px; 
-    
     height: 140px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-/* Nếu màn hình nhỏ hơn 480px, cho phép 2 cột */
-@media (max-width: 480px) {
-    .category {
-        width: calc(50% - 10px); 
-        height: 130px; 
-    }
-} 
-    
-/* Nếu màn hình lớn hơn 768px (Desktop/Tablet ngang), cho phép 7 cột */
-@media (min-width: 768px) {
-    .category {
-        width: 120px; 
-        height: 150px;
-    }
-}
-
 .category:hover { 
     transform: translateY(-5px); 
     box-shadow: 0 6px 15px rgba(0,0,0,0.2); 
 }
-
-/* Đảm bảo hình ảnh và chữ không bị tràn */
 .category img { 
     width: 60px; 
     height: 60px;
@@ -155,7 +136,6 @@ nav a:hover { color:#90e0ef; }
     margin: 0 auto 5px; 
     display: block; 
 }
-
 .category p { 
     font-weight: 600; 
     margin: 5px 0 0; 
@@ -163,14 +143,12 @@ nav a:hover { color:#90e0ef; }
     line-height: 1.2;
 }
 
-/* Products Container Wrapper */
+/* --- PHẦN SẢN PHẨM TIÊU BIỂU (Giữ nguyên) --- */
 .products-section-wrapper {
     padding: 40px 20px; 
     background: #e0fbfc; 
     text-align: center; 
 }
-
-/* Tiêu đề Sản phẩm tiêu biểu (index.html) */
 #featured-products h2 { 
     width: 100%; 
     font-size: 2rem; 
@@ -178,11 +156,8 @@ nav a:hover { color:#90e0ef; }
     margin: 0 0 30px;
     color: #023e8a; 
 }
-
-/* Product Grid - Bố cục chính cho sản phẩm */
 .product-grid {
     display: grid;
-    /* KHẮC PHỤC: Sử dụng minmax() linh hoạt hơn */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 20px;
     justify-content: center;
@@ -190,8 +165,6 @@ nav a:hover { color:#90e0ef; }
     margin: 0 auto;
     text-align: left;
 }
-
-/* Thẻ Sản phẩm */
 .product { 
     background: #ffffff; 
     border-radius: 15px; 
@@ -203,7 +176,6 @@ nav a:hover { color:#90e0ef; }
     flex-direction: column; 
     justify-content: space-between; 
     height: 100%; 
-    /* KHẮC PHỤC: Thêm min-width để tránh bị co quá mức trên màn hình nhỏ */
     min-width: 150px; 
 }
 .product:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
@@ -211,7 +183,7 @@ nav a:hover { color:#90e0ef; }
 .product a { display:inline-block; margin-top:auto; padding:8px 12px; background:#0077b6; color:#fff; text-decoration:none; border-radius:6px; transition:background 0.3s ease; }
 .product a:hover { background:#023e8a; }
 
-/* --- CSS VIỀN ẢNH ĐỘNG VÀ WRAPPER --- */
+/* --- CSS VIỀN ẢNH ĐỘNG --- */
 .product-image-wrapper {
     position: relative;
     width: 140px; 
@@ -247,18 +219,12 @@ nav a:hover { color:#90e0ef; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-/* --- KẾT THÚC CSS VIỀN ẢNH ĐỘNG --- */
 
-
-/* Style Bổ sung cho Trang SANPHAM.HTML (Chia theo Danh mục) */
-
-/* Định dạng cho từng khối sản phẩm theo danh mục */
+/* --- TRANG SANPHAM.HTML (Giữ nguyên) --- */
 .category-product-section {
     margin-bottom: 50px;
     padding: 20px 0;
 }
-
-/* Tiêu đề cho từng danh mục */
 .category-product-section .category-title {
     font-size: 1.8rem;
     color: #0077b6;
@@ -269,8 +235,6 @@ nav a:hover { color:#90e0ef; }
     padding-bottom: 5px;
     font-weight: 700;
 }
-
-/* Thanh phân cách giữa các danh mục */
 .separator {
     width: 80%;
     max-width: 1200px;
@@ -279,7 +243,7 @@ nav a:hover { color:#90e0ef; }
     margin: 40px auto;
 }
 
-/* Modal và Social Buttons giữ nguyên */
+/* Modal và Social Buttons (Giữ nguyên) */
 .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000; }
 .modal-content { background:#ffffff; padding:20px; width:90%; max-width:600px; border-radius:15px; overflow-y:auto; max-height:90%; }
 .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
@@ -293,10 +257,9 @@ nav a:hover { color:#90e0ef; }
 .social-buttons a img:hover { transform:scale(1.1); }
 
 
-/* Responsive */
+/* Responsive (Đảm bảo mọi thứ hoạt động trên mobile) */
 @media(max-width:992px) {
     .product-grid { 
-        /* KHẮC PHỤC: Đảm bảo sản phẩm không bị co quá nhỏ trên tablet */
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
     }
 }
@@ -307,10 +270,16 @@ nav a:hover { color:#90e0ef; }
         right: 10px;
     }
     .logo-on-banner img {
-        height: 60px; /* Logo nhỏ hơn trên mobile */
+        height: 50px; /* Giảm thêm trên mobile */
     }
     .slogan-on-banner {
-        font-size: 0.9rem;
+        font-size: 0.8rem; /* Giảm thêm trên mobile */
+    }
+    .hero {
+        padding: 30px 20px; /* Giảm thêm Hero Section trên mobile */
+    }
+    .hero h1 {
+        font-size: 1.5rem;
     }
     
     .product-grid { 
@@ -319,7 +288,6 @@ nav a:hover { color:#90e0ef; }
 }
 @media(max-width:480px) {
     .product-grid { 
-        /* Trên điện thoại, chỉ 1 cột */
         grid-template-columns: 1fr; 
     }
     nav { flex-direction:column; }
