@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // --- Xử lý Trang INDEX.HTML (8 Sản phẩm tiêu biểu) ---
         const indexProductsContainer = document.querySelector("#featured-products");
         if (indexProductsContainer) {
-            const featured = validProducts.slice(0, 8);
+            const featured = validProducts.slice(0, 12);
             indexProductsContainer.innerHTML = `
                 <h2 style="text-align:center;">Sản phẩm tiêu biểu</h2>
                 ${createProductGrid(featured)}
