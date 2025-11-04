@@ -80,6 +80,8 @@ nav a:hover { color:#90e0ef; }
         width: calc(50% - 10px); 
         height: 130px; /* Chiều cao nhỏ hơn chút trên màn hình rất nhỏ */
     }
+} 
+    
 /* Nếu màn hình lớn hơn 768px (Desktop/Tablet ngang), cho phép 7 cột */
 @media (min-width: 768px) {
     .category {
