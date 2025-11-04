@@ -1,20 +1,16 @@
-// scripts/main.js - Logic xử lý đa trang, có lọc sản phẩm rỗng
+// scripts/main.js - Logic xử lý đa trang, giới hạn 12 sản phẩm/danh mục (ngầm)
 
 document.addEventListener("DOMContentLoaded", async () => {
     // 1. Xác định trang hiện tại
     const path = window.location.pathname;
-    // Kiểm tra xem có phải trang index.html hoặc trang chủ (/) không
     const isIndexPage = path.endsWith('/index.html') || path === '/'; 
-    // Kiểm tra xem có phải trang sanpham.html (trang tổng quan danh mục) không
     const isSanPhamPage = path.endsWith('/sanpham.html'); 
-    // Kiểm tra xem có phải là trang con danh mục (bên trong thư mục /pages/) không
     const isCategoryPage = path.includes('/pages/') && path.endsWith('.html'); 
 
     let productsData = [];
 
     // Tải dữ liệu sản phẩm
     try {
-        // Đường dẫn tương đối hoạt động tốt nhất trên GitHub Pages
         let fetchPath = "products.json";
         // Nếu đang ở trang con (trong thư mục /pages/), phải đi ngược ra 1 cấp
         if (isCategoryPage) {
@@ -29,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         const errorMessage = "<p style='color:red; text-align:center; padding: 50px 0;'>⚠️ Lỗi: Không thể tải danh sách sản phẩm. Vui lòng kiểm tra file products.json.</p>";
         
-        // Hiển thị lỗi trên trang đang gặp vấn đề
         const containers = [document.querySelector("#featured-products"), document.querySelector("#all-products-sections"), document.querySelector("#category-products")];
         containers.forEach(container => {
             if (container) container.innerHTML = errorMessage;
@@ -63,13 +58,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
     };
     
-    // --- Hàm chuyển tên danh mục có dấu thành tên file không dấu ---
+    // --- Hàm chuyển tên danh mục có dấu thành tên file không dấu, không khoảng trắng ---
     const generatePageFileName = (categoryName) => {
         return categoryName
             .toLowerCase()
-            .normalize('NFD').replace(/[\u0300-\u036f]/g, "") 
-            .replace(/\s+/g, '') 
-            .replace(/[^a-z0-9]/g, '') 
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, "") // Loại bỏ dấu (Đồ gia dụng -> Do gia dung)
+            .replace(/đ/g, 'd') // Xử lý chữ Đ/đ riêng
+            .replace(/\s+/g, '') // Loại bỏ khoảng trắng (Dogiadung)
+            .replace(/[^a-z0-9]/g, '') // Loại bỏ ký tự đặc biệt
             + '.html';
     };
 
@@ -114,19 +110,20 @@ document.addEventListener("DOMContentLoaded", async () => {
                     
                     // Giới hạn sản phẩm hiển thị trên trang tổng là 12
                     const limitedProducts = groupedProducts[categoryName].slice(0, 12);
+                    const totalProducts = groupedProducts[categoryName].length;
 
                     fullHtml += `
                         <section class="category-product-section">
                             <h2 class="category-title">
                                 <a href="./pages/${pageFileName}" style="text-decoration: none; color: #023e8a;">
-                                    ${categoryName} (${groupedProducts[categoryName].length} sản phẩm)
+                                    ${categoryName}
                                 </a>
                             </h2>
                             ${createProductGrid(limitedProducts)}
                             
-                            ${groupedProducts[categoryName].length > 12 ? 
+                            ${totalProducts > 12 ? 
                                 `<div style="text-align: center; margin-top: 20px;">
-                                    <a href="./pages/${pageFileName}" class="btn">Xem tất cả (${groupedProducts[categoryName].length})</a>
+                                    <a href="./pages/${pageFileName}" class="btn">Xem tất cả (${totalProducts})</a>
                                 </div>` : ''
                             }
                         </section>
