@@ -22,7 +22,7 @@ body {
 /* Banner Ảnh (Nền) */
 #banner-img { 
     object-fit: cover; 
-    width: 100%; 
+    width: 70%; 
     display: block; 
     height: auto; 
     margin-bottom: 0; 
