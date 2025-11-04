@@ -88,7 +88,7 @@ nav a:hover { color:#90e0ef; }
         /* Giảm chiều rộng từ 120px xuống 115px. */
         /* Tổng chiều rộng mới: (7 * 115px) + (6 * 10px) = 805px + 60px = 865px. */
         /* Giảm tổng chiều rộng 35px, đủ để đảm bảo tất cả nằm trên 1 hàng. */
-        width: 110px; /* Kích thước cố định mới cho desktop */
+        width: 120px; /* Kích thước cố định mới cho desktop */
         height: 150px;
     }
 }
