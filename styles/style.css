@@ -13,8 +13,8 @@ body {
 /* --- HEADER VÀ BANNER (LỚP 1) --- */
 .main-header {
     background: #ffffff; 
-    width: 70%;
-    margin: 0;
+    width: 100%;
+    margin: 0 auto;
     padding: 0;
     position: relative; /* Quan trọng: Để banner-overlay-logo định vị tương đối */
 }
@@ -24,7 +24,7 @@ body {
     object-fit: cover; 
     width: 100%; 
     display: block; 
-    height: auto; 
+    height: 150; 
     margin-bottom: 0; 
 }
 
