@@ -295,3 +295,25 @@ nav a:hover { color:#90e0ef; }
 }
 
 footer { background:#023e8a; color:white; text-align:center; padding:20px; margin-top:40px; }
+
+/* --- CSS CHO KHỐI INTRO TEXT MỚI --- */
+.intro-text {
+    background: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.intro-text h3 {
+    font-size: 1.5rem;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+.intro-text p {
+    font-size: 1rem;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto 10px;
+    line-height: 1.6;
+}
