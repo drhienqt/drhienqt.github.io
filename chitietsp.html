@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm - HÂN STORE</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <meta property="og:title" content="HÂN STORE - Chi tiết sản phẩm">
+  <meta property="og:description" content="Khám phá sản phẩm độc đáo tại HÂN STORE - Tiện lợi, chất lượng, giá tốt.">
+  <meta property="og:image" content="https://drhienqt.github.io/assets/img/banner-hanstore.png">
+  <meta property="og:url" content="https://drhienqt.github.io/chitietsp.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    body {
+      background: linear-gradient(180deg, #f0faff 0%, #ffffff 50%, #f0faff 100%);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: #023e8a;
+    }
+    header { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    nav { display: flex; justify-content: center; background: #0077b6; padding: 10px 0; }
+    nav a { margin: 0 15px; color: #fff; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #caf0f8; }
+    .product-detail { padding: 60px 20px; display: flex; justify-content: center; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin: 40px auto; width: 90%; max-width: 1200px; animation: fadeIn 1s ease; }
+    @keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+    .product-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+    .product-image img { width: 100%; max-width: 400px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.15); transition: transform 0.5s; }
+    .product-image img:hover { transform: scale(1.05); }
+    .product-info h1 { font-size: 2rem; color: #0077b6; }
+    .product-price { font-size: 1.4rem; color: #0096c7; font-weight: 600; }
+    .buy-btn { background: linear-gradient(90deg, #0077b6, #00b4d8); color: white; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .buy-btn:hover { background: linear-gradient(90deg, #023e8a, #0096c7); transform: translateY(-3px); }
+    .media-section { background: radial-gradient(circle at top left, #e0f7fa, #ffffff); padding: 60px 20px; border-top: 4px solid #0096c7; text-align: center; animation: fadeIn 1.2s ease; }
+    .media-section h2 { font-size: 2rem; color: #023e8a; margin-bottom: 30px; position: relative; }
+    .media-section h2::after { content: ''; display: block; width: 80px; height: 3px; background: #0096c7; margin: 10px auto 0; border-radius: 3px; }
+    .media-grid { display: flex; flex-direction: column; gap: 40px; max-width: 800px; margin: 0 auto; }
+    .media-item { background: #ffffff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .media-item:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .media-item img, .media-item video { width: 100%; border-bottom: 3px solid #00b4d8; }
+    .media-desc { padding: 15px; font-size: 0.95rem; color: #0077b6; }
+    footer { background: #023e8a; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <img id="banner-img" src="https://drhienqt.github.io/assets/img/banner-hanstore.png" alt="Banner Hân Store">
+    <div class="banner-overlay-logo">
+      <div class="logo-on-banner">
+        <img src="https://drhienqt.github.io/assets/img/logo-hanstore.png" alt="Logo Hân Store">
+      </div>
+      <p class="slogan-on-banner">Trung tâm mua sắm đa nền tảng</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="sanpham.html">Sản phẩm</a>
+    <a href="lienhe.html">Liên hệ</a>
+    <a href="huongdan.html">Hướng dẫn</a>
+  </nav>
+
+  <section class="product-detail">
+    <div class="product-container">
+      <div class="product-image">
+        <img src="https://via.placeholder.com/400" alt="Tên sản phẩm">
+      </div>
+      <div class="product-info">
+        <h1>Nồi chiên không dầu Lock&Lock EJF351</h1>
+        <p class="product-price">Giá: <strong>1.290.000đ</strong></p>
+        <p>Nồi chiên không dầu Lock&Lock dung tích 5.5L, công suất 1800W, giúp bạn chế biến món ăn ngon, giòn rụm mà không cần dầu mỡ. Thiết kế sang trọng, dễ sử dụng, phù hợp mọi căn bếp hiện đại.</p>
+        <ul>
+          <li>✨ Dung tích lớn 5.5L, chiên nướng nhiều món cùng lúc.</li>
+          <li>🔥 Công nghệ Rapid Air giảm 85% lượng dầu mỡ.</li>
+          <li>🔌 Công suất 1800W, nhiệt đều, tiết kiệm điện.</li>
+          <li>🧽 Lòng nồi chống dính, dễ vệ sinh.</li>
+        </ul>
+        <a href="https://go.accesstrade.vn/deep_link/abcdef123456" target="_blank" class="buy-btn">🛒 MUA NGAY</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="media-section">
+    <h2>Hình ảnh và video sản phẩm</h2>
+    <div class="media-grid">
+      <div class="media-item">
+        <video controls>
+          <source src="media/noichien.mp4" type="video/mp4">
+        </video>
+        <p class="media-desc">🎬 Video giới thiệu tổng quan tính năng và thiết kế hiện đại của nồi chiên không dầu.</p>
+      </div>
+      <div class="media-item">
+        <img src="https://via.placeholder.com/300x200" alt="Ảnh sản phẩm 1">
+        <p class="media-desc">✨ Khoang chiên rộng, dễ vệ sinh, tiết kiệm thời gian nấu nướng.</p>
+      </div>
+      <div class="media-item">
+        <img src="https://via.placeholder.com/300x200" alt="Ảnh sản phẩm 2">
+        <p class="media-desc">🔥 Công nghệ Rapid Air giúp món ăn giòn bên ngoài, mềm bên trong.</p>
+      </div>
+      <div class="media-item">
+        <img src="https://via.placeholder.com/300x200" alt="Ảnh sản phẩm 3">
+        <p class="media-desc">💡 Thiết kế tối giản, màu sắc tinh tế phù hợp với không gian bếp hiện đại.</p>
+      </div>
+    </div>
+    <div style="margin-top:40px;">
+      <a href="https://go.accesstrade.vn/deep_link/abcdef123456" target="_blank" class="buy-btn">🛒 MUA NGAY</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 HÂN STORE - Trung tâm mua sắm đa nền tảng.</p>
+  </footer>
+</body>
+</html>
